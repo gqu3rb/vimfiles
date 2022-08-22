@@ -137,3 +137,5 @@ let g:UltiSnipsJumpForwardTrigger  = 'jk'    " use jk to move forward through ta
 let g:UltiSnipsJumpBackwardTrigger = 'kj'  " use kj to move backward through tabstops
 let g:UltiSnipsSnippetDirectories=[$HOME.'/vimfiles/UltiSnips']
 " ---------------Global Setting (End)--------------- "
+
+" test01
