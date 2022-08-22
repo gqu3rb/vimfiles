@@ -1,0 +1,118 @@
+# include this code block at the top of a *.snippets file...
+# ----------------------------- #
+global !p
+def math():
+  return vim.eval('vimtex#syntax#in_mathzone()') == '1'
+endglobal
+# ----------------------------- #
+# ...then place 'context "math()"' above any snippets you want to expand only in math mode
+
+
+global !p
+def notmath():
+  return vim.eval('vimtex#syntax#in_mathzone()') != '1'
+endglobal
+
+priority 100
+snippet tx "The \text{} command for normal font"
+\text{${1:${VISUAL:}}}$0
+endsnippet
+
+priority 100
+snippet tii "The \textit{} command for italic font"
+\textit{${1:${VISUAL:}}}$0
+endsnippet
+
+priority 100
+snippet tbb "The \textbf{} command for bold font"
+\textbf{${1:${VISUAL:}}}$0
+endsnippet
+
+
+priority 10
+snippet tx "The \textbf{} command for bold font" iA
+\text{$1}$0
+endsnippet
+
+priority 10
+snippet tbb "The \textbf{} command for bold font" iA
+\textbf{$1}$0
+endsnippet
+
+priority 10
+snippet tii "The \mathbf{} command for bold font" iA
+\mathit{$1}$0
+endsnippet
+
+
+context "math()"
+priority 200
+snippet tii "The \mathit{} command for italic font"
+\mathit{${1:${VISUAL:}}}$0
+endsnippet
+
+context "math()"
+priority 200
+snippet tbb "The \mathbf{} command for bold font"
+\mathbf{${1:${VISUAL:}}}$0
+endsnippet
+
+context "math()"
+priority 110
+snippet tbb "The \mathbf{} command for bold font" iA
+\mathbf{$1}$0
+endsnippet
+
+context "math()"
+priority 110
+snippet tii "The \mathbf{} command for bold font" iA
+\mathit{$1}$0
+endsnippet
+
+
+#--------------- colors st --------------#
+snippet RR "change color into red" iA
+{\color{red}{$1}}$0
+endsnippet
+
+snippet GG "change color into green" iA
+{\color{green}{$1}}$0
+endsnippet
+
+snippet BB "change color into blue" iA
+{\color{blue}{$1}}$0
+endsnippet
+
+snippet YY "change color into yellow" iA
+{\color{yellow}{$1}}$0
+endsnippet
+
+snippet CC "change color into cyan" iA
+{\color{cyan}{$1}}$0
+endsnippet
+
+priority 10
+snippet RR "change color into red" iA
+{\color{red}{${1:${VISUAL:}}}}$0
+endsnippet
+
+priority 10
+snippet GG "change color into green" iA
+{\color{green}{${1:${VISUAL:}}}}$0
+endsnippet
+
+priority 10
+snippet BB "change color into blue" iA
+{\color{blue}{${1:${VISUAL:}}}}$0
+endsnippet
+
+priority 10
+snippet YY "change color into yellow" iA
+{\color{yellow}{${1:${VISUAL:}}}}$0
+endsnippet
+
+priority 10
+snippet CC "change color into cyan" iA
+{\color{cyan}{${1:${VISUAL:}}}}$0
+endsnippet
+#--------------- colors en --------------#

@@ -1,0 +1,249 @@
+# include this code block at the top of a *.snippets file...
+# ----------------------------- #
+global !p
+def math():
+  return vim.eval('vimtex#syntax#in_mathzone()') == '1'
+endglobal
+
+global !p
+def notmath():
+  return not(vim.eval('vimtex#syntax#in_mathzone()') == '1')
+endglobal
+# ----------------------------- #
+# ...then place 'context "math()"' above any snippets you want to expand only in math mode
+
+
+snippet newnote "make a newnote configulation" b
+% !TEX program = xelatex
+\documentclass[a4paper,fleqn]{extarticle}
+
+\usepackage{amsmath,amsthm,amssymb,xcolor,calc}
+
+\usepackage{titlesec}
+\titleformat{\chapter}{\fontsize{24.88}{33pt plus.5pt minus.3pt}\bf}{\thesection}{1em}{}
+\titleformat{\section}{\fontsize{20.73}{28pt plus.5pt minus.3pt}\bf}{\thesection}{1em}{}
+\titleformat{\subsection}{\fontsize{17.28}{22pt plus.4pt minus.3pt}\bf}{\thesection}{1em}{}
+
+\usepackage{fontspec}
+\usepackage{xeCJK}
+\setCJKmainfont{新細明體}
+
+\usepackage[margin=5mm]{geometry} % set the margin of page
+\parindent=0pt % do not indent at the first line of paragraph
+\setlength{\mathindent}{0mm} % set the indent of align blocks
+
+% \usepackage{eso-pic} % grid page settings
+% \usepackage{tikz}
+% \AddToShipoutPictureBG{%
+% 	\begin{tikzpicture}[remember picture, overlay,
+% 		help lines/.append style={line width=0.075mm,color=gray!90}]
+% 		\draw[help lines] (current page.south west) grid[step=5mm]
+% 			(current page.north east);
+% 	\end{tikzpicture}%
+% }
+
+\usepackage[most]{tcolorbox} % indent block
+\tcbuselibrary{breakable}
+\newtcolorbox{indentBlock}[1]{beforeafter skip balanced=0mm,boxrule=0mm,opacityframe=0,boxsep=0mm,left=0mm,right=0mm,top=0mm,bottom=0mm,standard jigsaw,opacityback=0,coltext=black,breakable,left skip=10mm*#1,width=\textwidth-10mm*#1}
+% The self-defined colorbox "indentBlock" has one argument: the indent layer of block
+% "standard jigsaw" and "opacityback=0" set the box's background color as transparent
+
+\begin{document}
+\pagecolor{white}
+\color{black}
+%\maketitle
+
+\fontsize{17.28}{22pt plus.5pt minus.3pt}\selectfont
+\noindent
+
+$0
+\end{document}
+endsnippet
+
+
+#--------------- math_mark st --------------#
+context "math()"
+priority 10
+snippet ovb "overbrace comment" iA
+\overbrace{$1}$0
+endsnippet
+
+context "math()"
+priority 100
+snippet ovb "overbrace comment" iA
+\overbrace{${1:${VISUAL:}}}$0
+endsnippet
+
+context "math()"
+priority 10
+snippet udb "underbrace comment" iA
+\underbrace{$1}$0
+endsnippet
+
+context "math()"
+priority 100
+snippet udb "underbrace comment" iA
+\underbrace{${1:${VISUAL:}}}$0
+endsnippet
+
+context "math()"
+priority 10
+snippet up "place an equation on the other equation" i
+\stackrel{${1:upper}}{${2:down}}$0
+endsnippet
+
+context "math()"
+priority 100
+snippet up "place an equation on the other equation" i
+\stackrel{${2:upper}}{${1:${VISUAL:}}}$0
+endsnippet
+
+context "math()"
+priority 10
+snippet down "place an equation under the other equation" i
+\underset{${1:lower}}{${2:up}}$0
+endsnippet
+
+context "math()"
+priority 100
+snippet down "place an equation under the other equation" i
+\underset{${2:lower}}{${1:${VISUAL:}}}$0
+endsnippet
+#--------------- math_mark en --------------#
+
+
+#--------------- identnote st --------------#
+priority 10
+snippet i1 "the 1st ident block" b
+\begin{indentBlock}{1}
+	${1:block content}
+\end{indentBlock}
+$0
+endsnippet
+
+priority 10
+snippet i2 "the 2nd ident block" b
+\begin{indentBlock}{2}
+	${1:block content}
+\end{indentBlock}
+$0
+endsnippet
+
+priority 10
+snippet i3 "the 3nd ident block" b
+\begin{indentBlock}{3}
+	${1:block content}
+\end{indentBlock}
+$0
+endsnippet
+
+priority 10
+snippet i4 "the 4th ident block" b
+\begin{indentBlock}{4}
+	${1:block content}
+\end{indentBlock}
+$0
+endsnippet
+
+priority 10
+snippet i5 "the 5th ident block" b
+\begin{indentBlock}{5}
+	${1:block content}
+\end{indentBlock}
+$0
+endsnippet
+
+priority 10
+snippet i6 "the 6th ident block" b
+\begin{indentBlock}{6}
+	${1:block content}
+\end{indentBlock}
+$0
+endsnippet
+
+priority 10
+snippet i7 "the 7th ident block" b
+\begin{indentBlock}{7}
+	${1:block content}
+\end{indentBlock}
+$0
+endsnippet
+
+priority 10
+snippet in "the nth ident block" b
+\begin{indentBlock}{$1}
+	${2:block content}
+\end{indentBlock}
+$0
+endsnippet
+
+
+priority 100
+snippet i1 "the 1st ident block" b
+\begin{indentBlock}{1}
+	${1:${VISUAL:}}
+\end{indentBlock}
+$0
+endsnippet
+
+priority 100
+snippet i2 "the 2nd ident block" b
+\begin{indentBlock}{2}
+	${1:${VISUAL:}}
+\end{indentBlock}
+$0
+endsnippet
+
+priority 100
+snippet i3 "the 3nd ident block" b
+\begin{indentBlock}{3}
+	${1:${VISUAL:}}
+\end{indentBlock}
+$0
+endsnippet
+
+priority 100
+snippet i4 "the 4th ident block" b
+\begin{indentBlock}{4}
+	${1:${VISUAL:}}
+\end{indentBlock}
+$0
+endsnippet
+
+priority 100
+snippet i5 "the 5th ident block" b
+\begin{indentBlock}{5}
+	${1:${VISUAL:}}
+\end{indentBlock}
+$0
+endsnippet
+
+priority 100
+snippet i6 "the 6th ident block" b
+\begin{indentBlock}{6}
+	${1:${VISUAL:}}
+\end{indentBlock}
+$0
+endsnippet
+
+priority 100
+snippet i7 "the 7th ident block" b
+\begin{indentBlock}{7}
+	${1:${VISUAL:}}
+\end{indentBlock}
+$0
+endsnippet
+
+priority 100
+snippet in "the nth ident block" b
+\begin{indentBlock}{$1}
+	${2:${VISUAL:}}
+\end{indentBlock}
+$0
+endsnippet
+#--------------- identnote en --------------#
+
+snippet bls "baselineskip" iA
+\baselineskip
+endsnippet
+

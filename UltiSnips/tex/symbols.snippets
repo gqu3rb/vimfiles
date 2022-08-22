@@ -1,0 +1,172 @@
+# include this code block at the top of a *.snippets file...
+# ----------------------------- #
+global !p
+def math():
+  return vim.eval('vimtex#syntax#in_mathzone()') == '1'
+endglobal
+# ----------------------------- #
+# ...then place 'context "math()"' above any snippets you want to expand only in math mode
+
+
+#--------------- greek letters st --------------#
+context "math()"
+snippet tt "greek small letter theta" iA
+\theta 
+endsnippet
+
+context "math()"
+snippet pd "Partial Derivative"
+\partial
+endsnippet
+
+context "math()"
+snippet G "Gradient"
+\nabla
+endsnippet
+
+context "math()"
+snippet pi "greek small letter pi" iA
+\pi 
+endsnippet
+
+context "math()"
+snippet ;Ph "greek CAPITAL letter Phi" iA
+\Phi 
+endsnippet
+
+context "math()"
+snippet ;ph "greek small letter Phi" iA
+\phi
+endsnippet
+
+context "math()"
+snippet ;u "greek small letter mu" iA
+\mu
+endsnippet
+
+context "math()"
+snippet ;mu "greek small letter mu" iA
+\mu
+endsnippet
+
+context "math()"
+snippet ;a "greek small letter alpha" iA
+\alpha
+endsnippet
+
+context "math()"
+snippet ;b "greek small letter beta" iA
+\beta
+endsnippet
+
+context "math()"
+snippet ;g "greek small letter gamma" iA
+\gamma
+endsnippet
+
+context "math()"
+snippet ;d "greek small letter delta" iA
+\delta
+endsnippet
+
+context "math()"
+snippet ;D "greek CAPITAL letter Delta" iA
+\Delta
+endsnippet
+
+context "math()"
+snippet ;ve "greek small letter varepsilon" iA
+\varepsilon
+endsnippet
+
+context "math()"
+snippet ;ep "greek small letter epsilon" iA
+\epsilon
+endsnippet
+
+context "math()"
+snippet ;et "greek small letter eta" iA
+\eta
+endsnippet
+
+context "math()"
+snippet ;kp "greek small letter kappa" iA
+\kappa
+endsnippet
+
+context "math()"
+snippet ;l "greek small letter lambda" iA
+\lambda
+endsnippet
+
+context "math()"
+snippet ;rh "greek small letter rho" iA
+\rho
+endsnippet
+
+context "math()"
+snippet ;sig "greek small letter sigma" iA
+\sigma
+endsnippet
+
+context "math()"
+snippet ;ta "greek small letter tau" iA
+\tau
+endsnippet
+
+context "math()"
+snippet ;chi "greek small letter chi" iA
+\chi
+endsnippet
+
+context "math()"
+snippet ;psi "greek small letter psi" iA
+\psi
+endsnippet
+
+context "math()"
+snippet ;Psi "greek CAPITAL letter Psi" iA
+\Psi
+endsnippet
+
+context "math()"
+snippet ;o "greek small letter omega" iA
+\omega
+endsnippet
+
+context "math()"
+snippet ;O "greek small letter Omega" iA
+\Omega
+endsnippet
+
+context "math()"
+snippet ;om "greek small letter Omega" iA
+\Omega
+endsnippet
+
+context "math()"
+snippet ;mo "greek small letter Omega" iA
+\mho
+endsnippet
+#--------------- greek letters en --------------#
+
+context "math()"
+snippet sR "the set of real numbers" iA
+\mathbb{R}
+endsnippet
+
+context "math()"
+snippet sZ "the set of integers" iA
+\mathbb{Z}
+endsnippet
+
+context "math()"
+snippet sQ "the set of rational numbers" iA
+\mathbb{Q}
+endsnippet
+
+context "math()"
+snippet sN "the set of natural numbers" iA
+\mathbb{N}
+endsnippet
+
