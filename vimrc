@@ -53,7 +53,7 @@ inoremap <Down> <nop>
 inoremap <Left> <nop>
 inoremap <Right> <nop>
 
- " reload _vimrc
+ " reload vimrc
 nnoremap <F3> :source $MYVIMRC<CR>:call UltiSnips#RefreshSnippets()<CR>
  " select all
 nnoremap yA gg<S-v>Gy<C-o><C-o>
