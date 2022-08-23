@@ -54,7 +54,7 @@ inoremap <Left> <nop>
 inoremap <Right> <nop>
 
  " reload _vimrc
-nnoremap <F3> :source ~\_vimrc<CR>:call UltiSnips#RefreshSnippets()<CR>
+nnoremap <F3> :source $MYVIMRC<CR>:call UltiSnips#RefreshSnippets()<CR>
  " select all
 nnoremap yA gg<S-v>Gy<C-o><C-o>
 nnoremap dA gg<S-v>Gd<C-o><C-o>
