@@ -43,7 +43,11 @@ set splitbelow
 set splitright 
 
 " key-mapping
+
 let mapleader=","
+ " refer from Practical Vim P.140
+noremap \ ,
+
 noremap <Up> <nop>
 noremap <Down> <nop>
 noremap <Left> <nop>
@@ -132,10 +136,12 @@ cnoremap nerd NERDTree
 
 " Global setting used by UltiSnips
 " refer from: https://ejmastnak.github.io/tutorials/vim-latex/ultisnips.html#:~:text=in%20this%20article.-,First%20steps%3A%20snippet%20trigger%20and%20tabstop%20navigation%20keys,-After%20installing%20UltiSnips
-let g:UltiSnipsExpandTrigger       = 'jk'    " use jk to expand snippets
-let g:UltiSnipsJumpForwardTrigger  = 'jk'    " use jk to move forward through tabstops
-let g:UltiSnipsJumpBackwardTrigger = 'kj'  " use kj to move backward through tabstops
+" let g:UltiSnipsExpandTrigger       = 'jk'    " use jk to expand snippets
+" let g:UltiSnipsJumpForwardTrigger  = 'jk'    " use jk to move forward through tabstops
+" let g:UltiSnipsJumpBackwardTrigger = 'kj'  " use kj to move backward through tabstops
+" The three lines above can cause a lag when pressing the 'j' key to go down a
+" line in normal mode.
+
 let g:UltiSnipsSnippetDirectories=[$HOME.'/vimfiles/UltiSnips']
 " ---------------Global Setting (End)--------------- "
 
-" test01

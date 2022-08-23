@@ -22,7 +22,9 @@ let g:vimtex_compiler_latexmk = {
         \}
 
 " --------------- key mapping --------------- "
-let maplocalleader = ";" 
+
+" this line is commented because the ';' is used to repead the movements.
+" let maplocalleader = ";"
 
 " first		meannings
 " [		last
