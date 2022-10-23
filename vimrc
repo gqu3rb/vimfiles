@@ -105,17 +105,17 @@ autocmd BufWritePre * :retab " replace the tab character by spaces
 " And all the plugins using Python scripts should be reinstalled after you modify this line.
 " The plugins have been known using Python scripts are:
 " ultisnips
-let &pythonthreedll = 'C:\Users\great\AppData\Local\Programs\Python\Python39\python39.dll'
+let &pythonthreedll = 'C:\Users\user\AppData\Local\Programs\Python\Python39\python39.dll'
 
 " Editing XeLaTeX rapidly
-cnoremap latex NERDTree d:\nb\Desktop\Regis\tex_test01\test01.tex<CR>/test01.tex<CR><CR>ko
+" cnoremap latex NERDTree d:\nb\Desktop\Regis\tex_test01\test01.tex<CR>/test01.tex<CR><CR>ko
 
 " let NERDTree move to the specified folder rapidly
 " cnoremap reg NERDTree d:\nb\Desktop\Regis\
-cnoremap regis NERDTree d:\nb\Desktop\Regis\
-cnoremap doc NERDTree d:\nb\Documents\
-cnoremap nbdoc NERDTree d:\nb\Documents\
-cnoremap pcdoc NERDTree d:\PC\文件(含桌面內容、OnDrive)\
+cnoremap regis NERDTree C:\Users\user\Desktop\regis
+cnoremap doc NERDTree C:\Users\user\Documents\
+cnoremap nbdoc NERDTree C:\nb\Documents\
+cnoremap pcdoc NERDTree C:\PC\文件(含桌面內容、OnDrive)\
 
 " auto brackets completion
 autocmd filetype verilog,c,cpp,vim,autohotkey,snippets inoremap ( ()<C-[>i
