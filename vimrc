@@ -15,7 +15,7 @@ set laststatus=2
 set statusline=%<%f\ %h%m%r%=%{\"[\".(&fenc==\"\"?&fenc:&fenc).((exists(\"+bomb\")\ &&\ &bomb)?\",B\":\"\").\"]\ \"}%k\ %-14.(%l,%c%V%)\ %P
 set scrolloff=3
 
-language en_US 
+language en_US
 
 " refer to https://medium.com/@Aenon/vim-swap-backup-undo-git-2bf353caa02f
 set backupdir=~/vimfiles/backup_files/
@@ -33,14 +33,16 @@ set backspace=indent,eol,start " refer from: https://stackoverflow.com/questions
 " complete menu
 set completeopt=menuone
 set shortmess+=c " refer from: https://youtu.be/2f8h45YR494?t=479
- " refer from: https://stackoverflow.com/questions/2170023/how-to-map-keys-for-popup-menu-in-vim 
+ " refer from: https://stackoverflow.com/questions/2170023/how-to-map-keys-for-popup-menu-in-vim
 set complete-=i " refer from: https://stackoverflow.com/questions/2169645/vims-autocomplete-is-excruciatingly-slow
-inoremap <expr><C-J> pumvisible() ? "\<C-n>" : "\<C-J>" 
+inoremap <expr><C-J> pumvisible() ? "\<C-n>" : "\<C-J>"
 inoremap <expr><C-K> pumvisible() ? "\<C-p>" : "\<C-K>"
-inoremap <expr><Tab> pumvisible() ? "\<CR>" : "\<Tab>"
+" type <Tab> to make autocompletion
+set wildcharm=<Tab>
+inoremap <expr><Tab> pumvisible() ? "\<C-y>" : "\<Tab>"
 
-set splitbelow 
-set splitright 
+set splitbelow
+set splitright
 
 " key-mapping
 
@@ -86,10 +88,20 @@ filetype plugin indent on
 " display line numbers in help files
 autocmd FileType help  setlocal number
 
-" file indent
-autocmd filetype c,cpp,tex,snippets,verilog setlocal ts=4 sts=4 sw=4
+" file indent. refer from: https://stackoverflow.com/questions/234564/tab-key-4-spaces-and-auto-indent-after-curly-braces-in-vim#:~:text=Within%20Vim%2C%20type%20a%20colon,have%20to%20type%20them%20once.
+filetype plugin indent on
+" show existing tab with 4 spaces width
+autocmd filetype c,cpp,tex,snippets,verilog set tabstop=4
+" when indenting with '>', use 4 spaces width
+autocmd filetype c,cpp,tex,snippets,verilog set shiftwidth=4
+" On pressing tab, insert 4 spaces
+autocmd filetype c,cpp,tex,snippets,verilog set expandtab
 
-" If the Python version in the computer is updated, this line must be modified. 
+" save file actions
+autocmd BufWritePre * :%s/\s\+$//e " clear spaces in the end of each line
+autocmd BufWritePre * :retab " replace the tab character by spaces
+
+" If the Python version in the computer is updated, this line must be modified.
 " And all the plugins using Python scripts should be reinstalled after you modify this line.
 " The plugins have been known using Python scripts are:
 " ultisnips
@@ -105,7 +117,7 @@ cnoremap doc NERDTree d:\nb\Documents\
 cnoremap nbdoc NERDTree d:\nb\Documents\
 cnoremap pcdoc NERDTree d:\PC\文件(含桌面內容、OnDrive)\
 
-" auto brackets completion  
+" auto brackets completion
 autocmd filetype verilog,c,cpp,vim,autohotkey,snippets inoremap ( ()<C-[>i
 autocmd filetype verilog,c,cpp,vim,autohotkey,snippets inoremap () ()<C-[>i
 autocmd filetype verilog,c,cpp,vim,autohotkey,snippets inoremap [ []<C-[>i
