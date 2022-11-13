@@ -31,18 +31,20 @@ set incsearch
 set backspace=indent,eol,start " refer from: https://stackoverflow.com/questions/11560201/backspace-key-not-working-in-vim-vi
 
 " complete menu
-set completeopt=menuone
-set shortmess+=c " refer from: https://youtu.be/2f8h45YR494?t=479
- " refer from: https://stackoverflow.com/questions/2170023/how-to-map-keys-for-popup-menu-in-vim
-set complete-=i " refer from: https://stackoverflow.com/questions/2169645/vims-autocomplete-is-excruciatingly-slow
-inoremap <expr><C-J> pumvisible() ? "\<C-n>" : "\<C-J>"
-inoremap <expr><C-K> pumvisible() ? "\<C-p>" : "\<C-K>"
-" type <Tab> to make autocompletion
-set wildcharm=<Tab>
-inoremap <expr><Tab> pumvisible() ? "\<C-y>" : "\<Tab>"
+" refer from https://www.youtube.com/watch?v=2f8h45YR494&t=479s
+set complete+=kspell
+set completeopt=menuone,longest
+set shortmess+=c " refer from: https://youtu.be/2f8h45YR494?t=482
+inoremap <expr> <C-j> pumvisible() ? "<C-n>" : "<C-j>"
+inoremap <expr> <C-k> pumvisible() ? "<C-p>" : "<C-n>"
+inoremap <expr> <C-l> pumvisible() ? "<C-y>" : "<C-l>"
+inoremap <expr> <C-h> pumvisible() ? "<C-e>" : "<C-h>"
+
+" type <Tab> to make autocompletion in command line mode
+set wildmode=longest,list,full
+set wildmenu
 
 set splitbelow
-set splitright
 
 " key-mapping
 
@@ -92,10 +94,13 @@ autocmd FileType help  setlocal number
 filetype plugin indent on
 " show existing tab with 4 spaces width
 autocmd filetype c,cpp,tex,snippets,verilog set tabstop=4
+autocmd filetype asm set tabstop=2
 " when indenting with '>', use 4 spaces width
 autocmd filetype c,cpp,tex,snippets,verilog set shiftwidth=4
+autocmd filetype asm set shiftwidth=2
 " On pressing tab, insert 4 spaces
 autocmd filetype c,cpp,tex,snippets,verilog set expandtab
+autocmd filetype asm set expandtab
 
 " save file actions
 autocmd BufWritePre * :%s/\s\+$//e " clear spaces in the end of each line
@@ -133,6 +138,7 @@ autocmd filetype verilog,c,cpp,vim,autohotkey inoremap '' ''<C-[>i
 " Plugin
 call plug#begin()
 
+Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
 Plug 'preservim/nerdtree'
