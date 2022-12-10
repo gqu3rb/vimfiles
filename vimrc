@@ -27,6 +27,16 @@ set ignorecase
 set smartcase
 set incsearch
 
+" search for the selected text, refer from: vim Practical, P.232(217)
+xnoremap * :<C-u>call <SID>VSetSearch('/')<CR>/<C-R>=@/<CR><CR>
+xnoremap # :<C-u>call <SID>VSetSearch('?')<CR>?<C-R>=@/<CR><CR>
+function! s:VSetSearch(cmdtype)
+let temp = @s
+norm! gv"sy
+let @/ = '\V' . substitute(escape(@s, a:cmdtype.'\'), '\n', '\\n', 'g')
+let @s = temp
+endfunction
+
 " typing
 set backspace=indent,eol,start " refer from: https://stackoverflow.com/questions/11560201/backspace-key-not-working-in-vim-vi
 
@@ -61,12 +71,17 @@ inoremap <Down> <nop>
 inoremap <Left> <nop>
 inoremap <Right> <nop>
 
- " reload vimrc
+" open vimrc and edit it
+nnoremap <F4> :tabnew<CR>:e $MYVIMRC<CR>
+" reload vimrc
 nnoremap <F3> :source $MYVIMRC<CR>:call UltiSnips#RefreshSnippets()<CR>
- " select all
+" select all
 nnoremap yA gg<S-v>Gy<C-o><C-o>
 nnoremap dA gg<S-v>Gd<C-o><C-o>
 nnoremap vA gg<S-v>G
+
+" open the present file in a new tab
+nnoremap <C-w>t :sp<CR><C-w>T
 
 " encoding settings for editing files with a different encodings
 " see ':h usr_45' for details
@@ -101,6 +116,14 @@ autocmd filetype asm set shiftwidth=2
 " On pressing tab, insert 4 spaces
 autocmd filetype c,cpp,tex,snippets,verilog set expandtab
 autocmd filetype asm set expandtab
+
+" code folding
+" refer from: https://unix.stackexchange.com/questions/141097/how-to-enable-and-use-code-folding-in-vim
+let g:verilog_syntax_fold_lst = "all"
+set foldmethod=syntax
+set foldnestmax=10
+set nofoldenable
+set foldlevel=2
 
 " save file actions
 autocmd BufWritePre * :%s/\s\+$//e " clear spaces in the end of each line
@@ -151,6 +174,11 @@ call plug#end()
 
 " Global setting used by NERDTree
 cnoremap nerd NERDTree
+
+" Global setting used by vhda/verilog_systemverilog.vim
+" refer from: https://github.com/vhda/verilog_systemverilog.vim
+runtime macros/matchit.vim "allows using % to jump between matching keywords
+let g:verilog_disable_indent_lst = "eos,standalone,conditional"
 
 " Global setting used by UltiSnips
 " refer from: https://ejmastnak.github.io/tutorials/vim-latex/ultisnips.html#:~:text=in%20this%20article.-,First%20steps%3A%20snippet%20trigger%20and%20tabstop%20navigation%20keys,-After%20installing%20UltiSnips
