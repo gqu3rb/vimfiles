@@ -27,6 +27,10 @@ set ignorecase
 set smartcase
 set incsearch
 
+" search in a selected scope
+" refer form: https://stackoverflow.com/questions/2921752/limiting-search-scope-for-code-in-vim
+vnoremap <M-/> <Esc>/\%V
+
 " search for the selected text, refer from: vim Practical, P.232(217)
 xnoremap * :<C-u>call <SID>VSetSearch('/')<CR>/<C-R>=@/<CR><CR>
 xnoremap # :<C-u>call <SID>VSetSearch('?')<CR>?<C-R>=@/<CR><CR>
