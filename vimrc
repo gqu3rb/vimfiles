@@ -59,6 +59,7 @@ set wildmode=longest,list,full
 set wildmenu
 
 set splitbelow
+set splitright
 
 " key-mapping
 
