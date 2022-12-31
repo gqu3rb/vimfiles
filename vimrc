@@ -26,6 +26,10 @@ set undodir=~/vimfiles/undo_files/
 set ignorecase
 set smartcase
 set incsearch
+"
+" search in a selected scope
+" refer form: https://stackoverflow.com/questions/2921752/limiting-search-scope-for-code-in-vim
+vnoremap <M-/> <Esc>/\%V
 
 " typing
 set backspace=indent,eol,start " refer from: https://stackoverflow.com/questions/11560201/backspace-key-not-working-in-vim-vi
@@ -62,12 +66,18 @@ inoremap <Down> <nop>
 inoremap <Left> <nop>
 inoremap <Right> <nop>
 
+" open vimrc and edit it
+nnoremap <F4> :tabnew<CR>:e $MYVIMRC<CR>
+
  " reload vimrc
 nnoremap <F3> :source $MYVIMRC<CR>:call UltiSnips#RefreshSnippets()<CR>
  " select all
 nnoremap yA gg<S-v>Gy<C-o><C-o>
 nnoremap dA gg<S-v>Gd<C-o><C-o>
 nnoremap vA gg<S-v>G
+
+" open the present file in a new tab
+nnoremap <C-w>t :sp<CR><C-w>T
 
 " encoding settings for editing files with a different encodings
 " see ':h usr_45' for details
