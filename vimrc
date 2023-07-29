@@ -18,9 +18,9 @@ set scrolloff=3
 language en_US
 
 " refer to https://medium.com/@Aenon/vim-swap-backup-undo-git-2bf353caa02f
-set backupdir=~/vimfiles/backup_files/
-set noswapfile
-set undodir=~/vimfiles/undo_files/
+set backupdir=c:\\Users\user\\.vim\vim_backup_files/
+set dir=c:\\Users\user\\.vim\vim_swap_files/
+set undodir=c:\\Users\user\\.vim\vim_undo_files/
 
 " search
 set ignorecase
@@ -50,7 +50,7 @@ set complete+=kspell
 set completeopt=menuone,longest
 set shortmess+=c " refer from: https://youtu.be/2f8h45YR494?t=482
 inoremap <expr> <C-j> pumvisible() ? "<C-n>" : "<C-j>"
-inoremap <expr> <C-k> pumvisible() ? "<C-p>" : "<C-n>"
+inoremap <expr> <C-k> pumvisible() ? "<C-p>" : "<C-k>"
 inoremap <expr> <C-l> pumvisible() ? "<C-y>" : "<C-l>"
 inoremap <expr> <C-h> pumvisible() ? "<C-e>" : "<C-h>"
 
@@ -113,13 +113,13 @@ autocmd FileType help  setlocal number
 " file indent. refer from: https://stackoverflow.com/questions/234564/tab-key-4-spaces-and-auto-indent-after-curly-braces-in-vim#:~:text=Within%20Vim%2C%20type%20a%20colon,have%20to%20type%20them%20once.
 filetype plugin indent on
 " show existing tab with 4 spaces width
-autocmd filetype c,cpp,tex,snippets,verilog set tabstop=4
+autocmd filetype c,cpp,tex,snippets,verilog,arduino,conf,matlab set tabstop=4
 autocmd filetype asm set tabstop=2
 " when indenting with '>', use 4 spaces width
-autocmd filetype c,cpp,tex,snippets,verilog set shiftwidth=4
+autocmd filetype c,cpp,tex,snippets,verilog,arduino,conf,matlab set shiftwidth=4
 autocmd filetype asm set shiftwidth=2
 " On pressing tab, insert 4 spaces
-autocmd filetype c,cpp,tex,snippets,verilog set expandtab
+autocmd filetype c,cpp,tex,snippets,verilog,arduino,conf,matlab set expandtab
 autocmd filetype asm set expandtab
 
 " code folding
@@ -133,6 +133,7 @@ set foldlevel=2
 " save file actions
 autocmd BufWritePre * :%s/\s\+$//e " clear spaces in the end of each line
 autocmd BufWritePre * :retab " replace the tab character by spaces
+"autocmd BufWritePre *.v :%s/$//eg " clear reduntant CR in the end fo each line
 
 " If the Python version in the computer is updated, this line must be modified.
 " And all the plugins using Python scripts should be reinstalled after you modify this line.
@@ -145,23 +146,28 @@ let &pythonthreedll = 'C:\Users\user\AppData\Local\Programs\Python\Python39\pyth
 
 " let NERDTree move to the specified folder rapidly
 " cnoremap reg NERDTree d:\nb\Desktop\Regis\
-cnoremap regis NERDTree C:\Users\user\Desktop\regis
+cnoremap regis NERDTree C:\Users\user\Desktop\regis\
 cnoremap doc NERDTree C:\Users\user\Documents\
 cnoremap nbdoc NERDTree C:\nb\Documents\
 cnoremap pcdoc NERDTree C:\PC\文件(含桌面內容、OnDrive)\
+" You can use NERDTree's m shortcut to renaming a file
+" create a new vertical windows and open file explorer
+" Then you can rename a file by pressing R on it
+" cnoremap vex vs<CR>:Explore<CR>
 
 " auto brackets completion
-autocmd filetype verilog,c,cpp,vim,autohotkey,snippets inoremap ( ()<C-[>i
-autocmd filetype verilog,c,cpp,vim,autohotkey,snippets inoremap () ()<C-[>i
-autocmd filetype verilog,c,cpp,vim,autohotkey,snippets inoremap [ []<C-[>i
-autocmd filetype verilog,c,cpp,vim,autohotkey,snippets inoremap [] []<C-[>i
-autocmd filetype verilog,c,cpp,vim,autohotkey,snippets inoremap { {}<C-[>i
-autocmd filetype verilog,c,cpp,vim,autohotkey,snippets inoremap {} {}
-autocmd filetype verilog,c,cpp,vim,autohotkey,snippets inoremap {<CR> {<CR>}<C-[>O
-autocmd filetype verilog,c,cpp,autohotkey,tex inoremap " ""<C-[>i
-autocmd filetype verilog,c,cpp,autohotkey,tex inoremap "" ""<C-[>i
-autocmd filetype c,cpp,vim,autohotkey inoremap ' ''<C-[>i
-autocmd filetype verilog,c,cpp,vim,autohotkey inoremap '' ''<C-[>i
+autocmd filetype verilog,c,cpp,arduino,vim,autohotkey,snippets,matlab inoremap ( ()<C-[>i
+autocmd filetype verilog,c,cpp,arduino,vim,autohotkey,snippets,matlab inoremap () ()<C-[>i
+autocmd filetype verilog,c,cpp,arduino,vim,autohotkey,snippets,matlab inoremap [ []<C-[>i
+autocmd filetype verilog,c,cpp,arduino,vim,autohotkey,snippets,matlab inoremap [] []<C-[>i
+autocmd filetype verilog,c,cpp,arduino,vim,autohotkey,snippets,matlab inoremap { {}<C-[>i
+autocmd filetype verilog,c,cpp,arduino,vim,autohotkey,snippets,matlab inoremap {{ {{
+autocmd filetype verilog,c,cpp,arduino,vim,autohotkey,snippets,matlab inoremap {} {}
+autocmd filetype verilog,c,cpp,arduino,vim,autohotkey,snippets,matlab inoremap {<CR> {<CR>}<C-[>O
+autocmd filetype verilog,c,cpp,arduino,autohotkey,tex,matlab inoremap " ""<C-[>i
+autocmd filetype verilog,c,cpp,arduino,autohotkey,tex,matlab inoremap "" ""<C-[>i
+autocmd filetype c,cpp,arduino,vim,autohotkey inoremap ' ''<C-[>i
+autocmd filetype c,cpp,arduino,vim,autohotkey inoremap '' ''<C-[>i
 
 " Plugin
 call plug#begin()
@@ -173,6 +179,7 @@ Plug 'preservim/nerdtree'
 Plug 'vim-scripts/AutoComplPop'
 Plug 'lervag/vimtex'
 Plug 'SirVer/ultisnips'
+" Plug 'lyokha/vim-xkbswitch
 
 " Initialize plugin system
 call plug#end()

@@ -1,0 +1,12 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhistcnt =3
+let g:netrw_dirhist_3='C:/Users/user/OneDrive - 國立臺灣科技大學/自學/GI0000000 Git 詹詠翔'
+let g:netrw_dirhist_2='C:/Users/user/OneDrive - 國立臺灣科技大學/自學'
+let g:netrw_dirhist_1='C:\Users\user\OneDrive - 國立臺灣科技大學\自學\GI0000000 Git 詹詠翔'
+let g:netrw_dirhist_0='C:/Users/user/Documents/Xilinx FPGA/regis/my_testbench'
+let g:netrw_dirhist_9='C:\Users\user\Documents\Xilinx FPGA\regis\my_testbench'
+let g:netrw_dirhist_8='C:/Users/user/Documents/Xilinx FPGA/FPGA project development board v2/ADS8588S_50Hz_2KHz/my_testbench'
+let g:netrw_dirhist_7='C:\Users\user\Documents\Xilinx FPGA\FPGA project development board v2\ADS8588S_50Hz_2KHz\my_testbench'
+let g:netrw_dirhist_6='C:/Users/user/Documents/Xilinx FPGA/HDLBits/Always_blocks_clocked___Alwaysblock2/my_module'
+let g:netrw_dirhist_5='C:\Users\user\Documents\Xilinx FPGA\HDLBits\Always_blocks_clocked___Alwaysblock2\my_module'
+let g:netrw_dirhist_4='C:/Users/user/Documents/Arduino Projects/printReceivedASCII'
