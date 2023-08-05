@@ -150,6 +150,10 @@ cnoremap regis NERDTree C:\Users\user\Desktop\regis\
 cnoremap doc NERDTree C:\Users\user\Documents\
 cnoremap nbdoc NERDTree C:\nb\Documents\
 cnoremap pcdoc NERDTree C:\PC\文件(含桌面內容、OnDrive)\
+" create a new blank windows or tab
+cnoremap tabn tab new
+cnoremap vsn vs new
+cnoremap spn sp new
 " You can use NERDTree's m shortcut to renaming a file
 " create a new vertical windows and open file explorer
 " Then you can rename a file by pressing R on it
