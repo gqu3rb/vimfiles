@@ -88,6 +88,12 @@ nnoremap vA gg<S-v>G
 " open the present file in a new tab
 nnoremap <C-w>t :sp<CR><C-w>T
 
+" copy selected contents by clicking the right cursor
+" related to:
+" https://stackoverflow.com/questions/1835242/how-can-i-map-a-click-in-vim
+" :h click
+vnoremap <RightMouse> :yank<CR>
+
 " encoding settings for editing files with a different encodings
 " see ':h usr_45' for details
 if has("multi_byte") "from https://blog.gtwang.org/tips/vim-working-with-unicode/
