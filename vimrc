@@ -94,6 +94,9 @@ nnoremap <C-w>t :sp<CR><C-w>T
 " :h click
 vnoremap <RightMouse> :yank<CR>
 
+" paste selected contents by clicking the right cursor
+nnoremap <RightMouse> p
+
 " encoding settings for editing files with a different encodings
 " see ':h usr_45' for details
 if has("multi_byte") "from https://blog.gtwang.org/tips/vim-working-with-unicode/
