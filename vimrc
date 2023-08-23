@@ -193,6 +193,11 @@ Plug 'vim-scripts/AutoComplPop'
 Plug 'lervag/vimtex'
 Plug 'SirVer/ultisnips'
 " Plug 'lyokha/vim-xkbswitch
+Plug 'godlygeek/tabular' | Plug 'preservim/vim-markdown'
+" If you don't have nodejs and yarn
+" use pre build, add 'vim-plug' to the filetype list so vim-plug can update this plugin
+" see: https://github.com/iamcco/markdown-preview.nvim/issues/50
+Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
 
 " Initialize plugin system
 call plug#end()
@@ -212,6 +217,14 @@ let g:verilog_disable_indent_lst = "eos,standalone,conditional"
 " let g:UltiSnipsJumpBackwardTrigger = 'kj'  " use kj to move backward through tabstops
 " The three lines above can cause a lag when pressing the 'j' key to go down a
 " line in normal mode.
+
+" Global setting used by vim-markdown
+let g:vim_markdown_folding_level=6
+let g:vim_markdown_fenced_languages = ['verilog=verilog']
+
+" Global setting used by markdown-preview.nvim
+let g:mkdp_refresh_slow=1
+let g:mkdp_markdown_css = 'C:\Users\user\vimfiles\plugin\markdown-preview.nvim\github-markdown.css'
 
 let g:UltiSnipsSnippetDirectories=[$HOME.'/vimfiles/UltiSnips']
 " ---------------Global Setting (End)--------------- "
