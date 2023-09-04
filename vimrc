@@ -92,7 +92,7 @@ nnoremap <C-w>t :sp<CR><C-w>T
 " related to:
 " https://stackoverflow.com/questions/1835242/how-can-i-map-a-click-in-vim
 " :h click
-vnoremap <RightMouse> :yank<CR>
+vnoremap <RightMouse> y
 
 " paste selected contents by clicking the right cursor
 nnoremap <RightMouse> p
