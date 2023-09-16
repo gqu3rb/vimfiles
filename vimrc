@@ -97,6 +97,10 @@ vnoremap <RightMouse> y
 " paste selected contents by clicking the right cursor
 nnoremap <RightMouse> p
 
+" copy the present path to the clipboard
+" refer to: https://stackoverflow.com/questions/916875/yank-file-name-path-of-current-buffer-in-vim
+nnoremap cp :let @* = expand("%")<cr>
+
 " encoding settings for editing files with a different encodings
 " see ':h usr_45' for details
 if has("multi_byte") "from https://blog.gtwang.org/tips/vim-working-with-unicode/
