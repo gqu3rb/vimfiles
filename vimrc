@@ -101,6 +101,15 @@ nnoremap <RightMouse> p
 " refer to: https://stackoverflow.com/questions/916875/yank-file-name-path-of-current-buffer-in-vim
 nnoremap cp :let @* = expand("%")<cr>
 
+" compile the .c or .cpp file and execute it (the same as in CodeBlocks)
+" gcc compiler is required,
+" see: https://www.linkedin.com/pulse/installing-gcc-compiler-windows-run-c-program-gitbash-david-michael
+" to know how to install gcc compiler.
+" learn from:
+" https://youtu.be/uV-Myifxhjg
+" https://stackoverflow.com/questions/2627886/how-do-i-run-a-c-program-from-vim
+nnoremap <F9> :w <CR> :!gcc % -o %< <CR><CR> :! %< <CR>
+
 " encoding settings for editing files with a different encodings
 " see ':h usr_45' for details
 if has("multi_byte") "from https://blog.gtwang.org/tips/vim-working-with-unicode/
