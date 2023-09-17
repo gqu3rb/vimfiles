@@ -97,9 +97,11 @@ vnoremap <RightMouse> y
 " paste selected contents by clicking the right cursor
 nnoremap <RightMouse> p
 
-" copy the present path to the clipboard
-" refer to: https://stackoverflow.com/questions/916875/yank-file-name-path-of-current-buffer-in-vim
-nnoremap cp :let @* = expand("%")<cr>
+" copy the present absolute path to the clipboard
+" refer to:
+" https://stackoverflow.com/questions/916875/yank-file-name-path-of-current-buffer-in-vim
+" https://vi.stackexchange.com/questions/3686/copy-the-full-path-of-current-buffer-to-clipboard
+nnoremap cp :let @* = expand("%:p")<cr>
 
 " compile the .c or .cpp file and execute it (the same as in CodeBlocks)
 " gcc compiler is required,
