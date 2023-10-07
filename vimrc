@@ -88,6 +88,9 @@ nnoremap vA gg<S-v>G
 " open the present file in a new tab
 nnoremap <C-w>t :sp<CR><C-w>T
 
+" compare two different files
+cnoremap difftwo diffthis<CR><C-w>w:diffthis<CR><C-w>w
+
 " copy selected contents by clicking the right cursor
 " related to:
 " https://stackoverflow.com/questions/1835242/how-can-i-map-a-click-in-vim
