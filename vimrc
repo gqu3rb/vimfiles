@@ -200,8 +200,8 @@ autocmd filetype verilog,c,cpp,arduino,vim,autohotkey,snippets,matlab,html inore
 autocmd filetype verilog,c,cpp,arduino,vim,autohotkey,snippets,matlab,html inoremap {{ {{
 autocmd filetype verilog,c,cpp,arduino,vim,autohotkey,snippets,matlab,html inoremap {} {}
 autocmd filetype verilog,c,cpp,arduino,vim,autohotkey,snippets,matlab,html inoremap {<CR> {<CR>}<C-[>O
-autocmd filetype verilog,c,cpp,arduino,autohotkey,tex,matlab,html inoremap " ""<C-[>i
-autocmd filetype verilog,c,cpp,arduino,autohotkey,tex,matlab,html inoremap "" ""<C-[>i
+autocmd filetype verilog,c,cpp,arduino,autohotkey,tex,matlab inoremap " ""<C-[>i
+autocmd filetype verilog,c,cpp,arduino,autohotkey,tex,matlab inoremap "" ""<C-[>i
 autocmd filetype c,cpp,arduino,vim,autohotkey,html inoremap ' ''<C-[>i
 autocmd filetype c,cpp,arduino,vim,autohotkey,html inoremap '' ''<C-[>i
 
