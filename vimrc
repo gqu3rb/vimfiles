@@ -164,6 +164,7 @@ set foldlevel=2
 " save file actions
 autocmd BufWritePre * :%s/\s\+$//e " clear spaces in the end of each line
 autocmd BufWritePre * :retab " replace the tab character by spaces
+autocmd BufWritePre *.v :%s/\r//eg " clear ^M in the end of line
 "autocmd BufWritePre *.v :%s/$//eg " clear reduntant CR in the end fo each line
 
 " If the Python version in the computer is updated, this line must be modified.
