@@ -115,8 +115,8 @@ nnoremap cp :let @* = expand("%:p")<cr>
 " learn from:
 " https://youtu.be/uV-Myifxhjg
 " https://stackoverflow.com/questions/2627886/how-do-i-run-a-c-program-from-vim
-autocmd filetype c nnoremap <F9> :w <CR> :!gcc % -o %< <CR><CR> :! %< <CR>
-autocmd filetype cpp nnoremap <F9> :w <CR> :!g++ % -o %< <CR><CR> :! %< <CR>
+autocmd filetype c nnoremap <F9> :w <CR> :!cls <CR> :!gcc % -o %< <CR><CR> :! %< <CR>
+autocmd filetype cpp nnoremap <F9> :w <CR> :!cls <CR> :!g++ % -o %< <CR><CR> :! %< <CR>
 
 " encoding settings for editing files with a different encodings
 " see ':h usr_45' for details
