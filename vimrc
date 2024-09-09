@@ -104,12 +104,12 @@ autocmd FileType help  setlocal number
 " file indent. refer from: https://stackoverflow.com/questions/234564/tab-key-4-spaces-and-auto-indent-after-curly-braces-in-vim#:~:text=Within%20Vim%2C%20type%20a%20colon,have%20to%20type%20them%20once.
 filetype plugin indent on
 " show existing tab with 4 spaces width
-autocmd filetype c,cpp,tex,snippets,verilog set tabstop=4
+autocmd filetype c,cpp,tex,snippets,verilog,arduino set tabstop=4
 autocmd filetype asm set shiftwidth=2
 " when indenting with '>', use 4 spaces width
-autocmd filetype c,cpp,tex,snippets,verilog set shiftwidth=4
+autocmd filetype c,cpp,tex,snippets,verilog,arduino set shiftwidth=4
 " On pressing tab, insert 4 spaces
-autocmd filetype c,cpp,tex,snippets,verilog set expandtab
+autocmd filetype c,cpp,tex,snippets,verilog,arduino set expandtab
 autocmd filetype asm set expandtab
 
 " save file actions
@@ -133,17 +133,17 @@ cnoremap nbdoc NERDTree d:\nb\Documents\
 cnoremap pcdoc NERDTree d:\PC\文件(含桌面內容、OnDrive)\
 
 " auto brackets completion
-autocmd filetype verilog,c,cpp,vim,autohotkey,snippets inoremap ( ()<C-[>i
-autocmd filetype verilog,c,cpp,vim,autohotkey,snippets inoremap () ()<C-[>i
-autocmd filetype verilog,c,cpp,vim,autohotkey,snippets inoremap [ []<C-[>i
-autocmd filetype verilog,c,cpp,vim,autohotkey,snippets inoremap [] []<C-[>i
-autocmd filetype verilog,c,cpp,vim,autohotkey,snippets inoremap { {}<C-[>i
-autocmd filetype verilog,c,cpp,vim,autohotkey,snippets inoremap {} {}
-autocmd filetype verilog,c,cpp,vim,autohotkey,snippets inoremap {<CR> {<CR>}<C-[>O
-autocmd filetype verilog,c,cpp,autohotkey,tex inoremap " ""<C-[>i
-autocmd filetype verilog,c,cpp,autohotkey,tex inoremap "" ""<C-[>i
-autocmd filetype c,cpp,vim,autohotkey inoremap ' ''<C-[>i
-autocmd filetype verilog,c,cpp,vim,autohotkey inoremap '' ''<C-[>i
+autocmd filetype verilog,c,cpp,vim,autohotkey,snippets,arduino inoremap ( ()<C-[>i
+autocmd filetype verilog,c,cpp,vim,autohotkey,snippets,arduino inoremap () ()<C-[>i
+autocmd filetype verilog,c,cpp,vim,autohotkey,snippets,arduino inoremap [ []<C-[>i
+autocmd filetype verilog,c,cpp,vim,autohotkey,snippets,arduino inoremap [] []<C-[>i
+autocmd filetype verilog,c,cpp,vim,autohotkey,snippets,arduino inoremap { {}<C-[>i
+autocmd filetype verilog,c,cpp,vim,autohotkey,snippets,arduino inoremap {} {}
+autocmd filetype verilog,c,cpp,vim,autohotkey,snippets,arduino inoremap {<CR> {<CR>}<C-[>O
+autocmd filetype verilog,c,cpp,autohotkey,tex,arduino inoremap " ""<C-[>i
+autocmd filetype verilog,c,cpp,autohotkey,tex,arduino inoremap "" ""<C-[>i
+autocmd filetype c,cpp,vim,autohotkey,arduino inoremap ' ''<C-[>i
+autocmd filetype verilog,c,cpp,vim,autohotkey,arduino inoremap '' ''<C-[>i
 
 " Plugin
 call plug#begin()
