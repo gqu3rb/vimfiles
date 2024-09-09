@@ -101,6 +101,16 @@ filetype plugin indent on
 " display line numbers in help files
 autocmd FileType help  setlocal number
 
+" compile the .c or .cpp file and execute it (the same as in CodeBlocks)
+" gcc compiler is required,
+" see: https://www.linkedin.com/pulse/installing-gcc-compiler-windows-run-c-program-gitbash-david-michael
+" to know how to install gcc compiler.
+" learn from:
+" https://youtu.be/uV-Myifxhjg
+" https://stackoverflow.com/questions/2627886/how-do-i-run-a-c-program-from-vim
+autocmd filetype c nnoremap <F9> :w <CR> :!cls <CR> :!gcc % -o %< <CR><CR> :! %< <CR>
+autocmd filetype cpp nnoremap <F9> :w <CR> :!cls <CR> :!g++ % -o %< <CR><CR> :! %< <CR>
+
 " file indent. refer from: https://stackoverflow.com/questions/234564/tab-key-4-spaces-and-auto-indent-after-curly-braces-in-vim#:~:text=Within%20Vim%2C%20type%20a%20colon,have%20to%20type%20them%20once.
 filetype plugin indent on
 " show existing tab with 4 spaces width
