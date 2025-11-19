@@ -163,7 +163,7 @@ set foldlevel=2
 
 " save file actions
 if &filetype!='markdown'
-	autocmd BufWritePre * :%s/\s\+$//e " clear spaces in the end of each line
+    autocmd BufWritePre * :%s/\s\+$//e " clear spaces in the end of each line
 endif
 autocmd BufWritePre * :retab " replace the tab character by spaces
 autocmd BufWritePre *.v :%s/\r//eg " clear ^M in the end of line
@@ -194,18 +194,24 @@ cnoremap spn sp new
 " cnoremap vex vs<CR>:Explore<CR>
 
 " auto brackets completion
-autocmd filetype verilog,c,cpp,arduino,vim,autohotkey,snippets,matlab,html inoremap ( ()<C-[>i
-autocmd filetype verilog,c,cpp,arduino,vim,autohotkey,snippets,matlab,html inoremap () ()<C-[>i
-autocmd filetype verilog,c,cpp,arduino,vim,autohotkey,snippets,matlab inoremap [ []<C-[>i
-autocmd filetype verilog,c,cpp,arduino,vim,autohotkey,snippets,matlab inoremap [] []<C-[>i
-autocmd filetype verilog,c,cpp,arduino,vim,autohotkey,snippets,matlab,html inoremap { {}<C-[>i
-autocmd filetype verilog,c,cpp,arduino,vim,autohotkey,snippets,matlab,html inoremap {{ {{
-autocmd filetype verilog,c,cpp,arduino,vim,autohotkey,snippets,matlab,html inoremap {} {}
-autocmd filetype verilog,c,cpp,arduino,vim,autohotkey,snippets,matlab,html inoremap {<CR> {<CR>}<C-[>O
-autocmd filetype verilog,c,cpp,arduino,autohotkey,tex,matlab inoremap " ""<C-[>i
-autocmd filetype verilog,c,cpp,arduino,autohotkey,tex,matlab inoremap "" ""<C-[>i
-autocmd filetype c,cpp,arduino,vim,autohotkey,html inoremap ' ''<C-[>i
-autocmd filetype c,cpp,arduino,vim,autohotkey,html inoremap '' ''<C-[>i
+autocmd filetype verilog,c,cpp,arduino,vim,autohotkey,snippets,matlab,html inoremap <buffer> ( ()<C-[>i
+autocmd filetype verilog,c,cpp,arduino,vim,autohotkey,snippets,matlab,html inoremap <buffer> () ()<C-[>i
+autocmd filetype verilog,c,cpp,arduino,vim,autohotkey,snippets,matlab inoremap <buffer> [ []<C-[>i
+autocmd filetype verilog,c,cpp,arduino,vim,autohotkey,snippets,matlab inoremap <buffer> [] []<C-[>i
+autocmd filetype verilog,c,cpp,arduino,vim,autohotkey,snippets,matlab,html inoremap <buffer> { {}<C-[>i
+autocmd filetype verilog,c,cpp,arduino,vim,autohotkey,snippets,matlab,html inoremap <buffer> {{ {{
+autocmd filetype verilog,c,cpp,arduino,vim,autohotkey,snippets,matlab,html inoremap <buffer> {} {}
+autocmd filetype verilog,c,cpp,arduino,vim,autohotkey,snippets,matlab,html inoremap <buffer> {<CR> {<CR>}<C-[>O
+autocmd filetype verilog,c,cpp,arduino,autohotkey,tex,matlab inoremap <buffer> " ""<C-[>i
+autocmd filetype verilog,c,cpp,arduino,autohotkey,tex,matlab inoremap <buffer> "" ""<C-[>i
+autocmd filetype c,cpp,arduino,vim,autohotkey,html inoremap <buffer> ' ''<C-[>i
+autocmd filetype c,cpp,arduino,vim,autohotkey,html inoremap <buffer> '' ''<C-[>i
+
+" vim diff configuration
+highlight DiffAdd    cterm=bold ctermfg=10 ctermbg=17 gui=none guifg=bg guibg=Red
+highlight DiffDelete cterm=bold ctermfg=10 ctermbg=17 gui=none guifg=bg guibg=Red
+highlight DiffChange cterm=bold ctermfg=10 ctermbg=17 gui=none guifg=bg guibg=Red
+highlight DiffText   cterm=bold ctermfg=10 ctermbg=88 gui=none guifg=bg guibg=Red
 
 " Plugin
 call plug#begin()
