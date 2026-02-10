@@ -12,15 +12,18 @@ syntax on
 set ruler
 set showcmd
 set laststatus=2
-set statusline=%<%f\ %h%m%r%=%{\"[\".(&fenc==\"\"?&fenc:&fenc).((exists(\"+bomb\")\ &&\ &bomb)?\",B\":\"\").\"]\ \"}%k\ %-14.(%l,%c%V%)\ %P
+set statusline=%<%f\ %h%m%r%=
+set statusline+=\ [%{&fenc!=''?&fenc:&encoding}]
+set statusline+=%{&bomb?',B':''}
+set statusline+=\ %k\ %-14.(%l,%c%V%)\ %P
 set scrolloff=3
 
 language en_US
 
 " refer to https://medium.com/@Aenon/vim-swap-backup-undo-git-2bf353caa02f
-set backupdir=c:\\Users\user\\.vim\vim_backup_files/
-set dir=c:\\Users\user\\.vim\vim_swap_files/
-set undodir=c:\\Users\user\\.vim\vim_undo_files/
+set backupdir=C:\\Users\User\\.vim\vim_backup_files/
+set dir=C:\\Users\User\\.vim\vim_swap_files/
+set undodir=C:\\Users\User\\.vim\vim_undo_files/
 
 " search
 set ignorecase
@@ -79,7 +82,8 @@ inoremap <Right> <nop>
 " open vimrc and edit it
 nnoremap <F4> :tabnew<CR>:e $MYVIMRC<CR>
 " reload vimrc
-nnoremap <F3> :source $MYVIMRC<CR>:call UltiSnips#RefreshSnippets()<CR>
+" nnoremap <F3> :source $MYVIMRC<CR>:call UltiSnips#RefreshSnippets()<CR>
+nnoremap <F3> :source $MYVIMRC<CR>
 " select all
 nnoremap yA gg<S-v>Gy<C-o><C-o>
 nnoremap dA gg<S-v>Gd<C-o><C-o>
@@ -173,17 +177,11 @@ autocmd BufWritePre *.v :%s/\r//eg " clear ^M in the end of line
 " And all the plugins using Python scripts should be reinstalled after you modify this line.
 " The plugins have been known using Python scripts are:
 " ultisnips
-let &pythonthreedll = 'C:\Users\user\AppData\Local\Programs\Python\Python39\python39.dll'
+" let &pythonthreedll = 'C:\Users\User\AppData\Local\Programs\Python\Python39\python39.dll'
 
 " Editing XeLaTeX rapidly
 " cnoremap latex NERDTree d:\nb\Desktop\Regis\tex_test01\test01.tex<CR>/test01.tex<CR><CR>ko
 
-" let NERDTree move to the specified folder rapidly
-" cnoremap reg NERDTree d:\nb\Desktop\Regis\
-cnoremap regis NERDTree C:\Users\user\Desktop\regis\
-cnoremap doc NERDTree C:\Users\user\Documents\
-cnoremap nbdoc NERDTree C:\nb\Documents\
-cnoremap pcdoc NERDTree C:\PC\文件(含桌面內容、OnDrive)\
 " create a new blank windows or tab
 cnoremap tabn tab new
 cnoremap vsn vs new
@@ -207,6 +205,12 @@ autocmd filetype verilog,c,cpp,arduino,autohotkey,tex,matlab inoremap "" ""<C-[>
 autocmd filetype c,cpp,arduino,vim,autohotkey,html inoremap ' ''<C-[>i
 autocmd filetype c,cpp,arduino,vim,autohotkey,html inoremap '' ''<C-[>i
 
+" vim diff configuration
+highlight DiffAdd    cterm=bold ctermfg=10 ctermbg=17 gui=none guifg=bg guibg=Red
+highlight DiffDelete cterm=bold ctermfg=10 ctermbg=17 gui=none guifg=bg guibg=Red
+highlight DiffChange cterm=bold ctermfg=10 ctermbg=17 gui=none guifg=bg guibg=Red
+highlight DiffText   cterm=bold ctermfg=10 ctermbg=88 gui=none guifg=bg guibg=Red
+
 " Plugin
 call plug#begin()
 
@@ -214,9 +218,9 @@ Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
 Plug 'preservim/nerdtree'
-Plug 'vim-scripts/AutoComplPop'
+" Plug 'vim-scripts/AutoComplPop'
 Plug 'lervag/vimtex'
-Plug 'SirVer/ultisnips'
+" Plug 'SirVer/ultisnips'
 " Plug 'lyokha/vim-xkbswitch
 Plug 'godlygeek/tabular' | Plug 'preservim/vim-markdown'
 " If you don't have nodejs and yarn
@@ -249,8 +253,8 @@ let g:vim_markdown_fenced_languages = ['verilog=verilog']
 
 " Global setting used by markdown-preview.nvim
 let g:mkdp_refresh_slow=1
-let g:mkdp_markdown_css = 'C:\Users\user\vimfiles\plugin\markdown-preview.nvim\github-markdown.css'
+let g:mkdp_markdown_css = 'C:\Users\User\vimfiles\plugin\markdown-preview.nvim\github-markdown.css'
 
-let g:UltiSnipsSnippetDirectories=[$HOME.'/vimfiles/UltiSnips']
+" let g:UltiSnipsSnippetDirectories=[$HOME.'/vimfiles/UltiSnips']
 " ---------------Global Setting (End)--------------- "
 
