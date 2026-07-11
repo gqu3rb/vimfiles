@@ -47,7 +47,10 @@ set backspace=indent,eol,start " refer from: https://stackoverflow.com/questions
 " complete menu
 " refer from https://www.youtube.com/watch?v=2f8h45YR494&t=479s
 set complete+=kspell
-set completeopt=menuone,longest
+" replace the original completeopt for AutocomplPop with the one that works
+" smoothly with asyncomplete
+"set completeopt=menuone,longest
+set completeopt=menuone,noinsert,noselect,longest
 set shortmess+=c " refer from: https://youtu.be/2f8h45YR494?t=482
 inoremap <expr> <C-j> pumvisible() ? "<C-n>" : "<C-j>"
 inoremap <expr> <C-k> pumvisible() ? "<C-p>" : "<C-k>"
@@ -220,7 +223,12 @@ Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
 Plug 'preservim/nerdtree'
-Plug 'vim-scripts/AutoComplPop'
+" Replace the AutoComplPop with asyncomplete.vim to prevent from possible E219 errors when editing a line
+" containing \}, \, or }
+"Plug 'vim-scripts/AutoComplPop'
+Plug 'prabirshrestha/asyncomplete.vim'
+Plug 'prabirshrestha/asyncomplete-buffer.vim'
+Plug 'prabirshrestha/asyncomplete-file.vim'
 Plug 'lervag/vimtex'
 Plug 'SirVer/ultisnips'
 " Plug 'lyokha/vim-xkbswitch
@@ -258,5 +266,25 @@ let g:mkdp_refresh_slow=1
 let g:mkdp_markdown_css = 'C:\Users\user\vimfiles\plugin\markdown-preview.nvim\github-markdown.css'
 
 let g:UltiSnipsSnippetDirectories=[$HOME.'/vimfiles/UltiSnips']
+
+" {{ Global setting used by asyncomplete
+" Register Buffer completion source (keyword autocompletion)
+au User asyncomplete_setup call asyncomplete#register_source(asyncomplete#sources#buffer#get_source_options({
+    \ 'name': 'buffer',
+    \ 'allowlist': ['*'],
+    \ 'completor': function('asyncomplete#sources#buffer#completor'),
+    \ 'config': {
+    \    'max_buffer_size': -1,
+    \  },
+    \ }))
+
+" Register File path completion source
+au User asyncomplete_setup call asyncomplete#register_source(asyncomplete#sources#file#get_source_options({
+    \ 'name': 'file',
+    \ 'allowlist': ['*'],
+    \ 'priority': 10,
+    \ 'completor': function('asyncomplete#sources#file#completor')
+    \ }))
+" }}
 " ---------------Global Setting (End)--------------- "
 
